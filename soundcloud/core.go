@@ -84,6 +84,8 @@ func (api *Api) extendParams(p url.Values, auth ...bool) (url.Values, error) {
 	if !(len(auth) > 0 && auth[0]) {
 		if api.AccessToken != "" {
 			p.Set("oauth_token", api.AccessToken)
+		} else if api.Username != "" && api.Password != "" {
+
 		} else {
 			return p, errors.New("User authentication required to use this endpoint")
 		}
