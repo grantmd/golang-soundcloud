@@ -32,7 +32,7 @@ type Api struct {
 }
 
 func (api *Api) Authenticated() bool {
-	return api.AccessToken != ""
+	return api.AccessToken != "" || (api.Username != "" && api.Password != "")
 }
 
 // -- Implementation of request --
