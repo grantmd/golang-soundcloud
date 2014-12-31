@@ -28,5 +28,7 @@ func TestPlaylistGet(t *testing.T) {
 		t.Error("25 Nights For Nujabes title changed?", ret.Title)
 	} else if ret.User.Permalink != "takugotbeats" || ret.User.Username != "Ta-ku" {
 		t.Error("user object for takugotbeats changed?", ret.User.Permalink, ret.User.Username)
+	} else if ret.TrackCount < 23 {
+		t.Error("track count is too low?", ret.TrackCount)
 	}
 }
