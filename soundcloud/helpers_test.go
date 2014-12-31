@@ -24,7 +24,7 @@ func init() {
 
 func authorizedRequest(t *testing.T) {
 	if !doAuthorizedRequests {
-		t.Skip("Access Token not provided.")
+		t.Skip("access_token or username/password not provided.")
 	}
 }
 
