@@ -75,7 +75,7 @@ func DoSomeSoundCloudApiStuff(accessToken string) {
 
 ## Tests
 
-To run the tests, you'll need at least a `ClientId` (which you can get from [here](http://soundcloud.com/developer/clients/manage/)), and preferably an authenticated users' `AccessToken`, which is a bit harder to get (involves authenticating for an app and getting that auth token)
+To run the tests, you'll need at least a `ClientId` (which you can get from [here](https://soundcloud.com/you/apps/)), and preferably an authenticated users' `AccessToken`, which is a bit harder to get (involves authenticating for an app and getting that auth token)
 
 First, fill in `config_test.go.example` and save it as `config_test.go`. Then run `go test`
 
