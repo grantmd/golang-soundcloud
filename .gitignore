@@ -21,4 +21,4 @@ _testmain.go
 
 *.exe
 
-instagram/config_test.go
+soundcloud/config_test.go
