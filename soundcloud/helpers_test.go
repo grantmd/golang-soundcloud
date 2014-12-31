@@ -29,11 +29,21 @@ func authorizedRequest(t *testing.T) {
 }
 
 func createApi() *Api {
-	api := &Api{
-		ClientId:     TestConfig["client_id"].(string),
-		ClientSecret: TestConfig["client_secret"].(string),
-		AccessToken:  TestConfig["access_token"].(string),
-		RefreshToken: TestConfig["refresh_token"].(string),
+	var api *Api
+	if TestConfig["username"] != "" && TestConfig["password"] != "" {
+		api = &Api{
+			ClientId:     TestConfig["client_id"].(string),
+			ClientSecret: TestConfig["client_secret"].(string),
+			Username:     TestConfig["username"].(string),
+			Password:     TestConfig["password"].(string),
+		}
+	} else {
+		api = &Api{
+			ClientId:     TestConfig["client_id"].(string),
+			ClientSecret: TestConfig["client_secret"].(string),
+			AccessToken:  TestConfig["access_token"].(string),
+			RefreshToken: TestConfig["refresh_token"].(string),
+		}
 	}
 
 	_ = api.Refresh()

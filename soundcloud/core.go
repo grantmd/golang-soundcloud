@@ -27,6 +27,8 @@ type Api struct {
 	ClientSecret string
 	AccessToken  string
 	RefreshToken string
+	Username     string
+	Password     string
 }
 
 func (api *Api) Authenticated() bool {
