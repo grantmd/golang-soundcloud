@@ -52,11 +52,11 @@ func TestUserTracks(t *testing.T) {
 }
 
 func TestUserTracksCreatedAtFrom(t *testing.T) {
-	ret, err := api.User(macklemore_id).Tracks(api.Values("created_at[from]", "2013/03/17 18:37:51"))
+	ret, err := api.User(shiroban_id).Tracks(api.Values("created_at[from]", "2013/03/25 18:50:54"))
 	if err != nil {
 		t.Error(err)
-	} else if ret[len(ret)-1].CreatedAt != "2013/03/17 18:37:51 +0000" {
-		t.Error("Created At didn't work right")
+	} else if ret[len(ret)-1].CreatedAt != "2013/03/25 18:50:54 +0000" {
+		t.Error("Created At didn't work right", ret[len(ret)-1].CreatedAt)
 	}
 }
 
@@ -81,7 +81,7 @@ func TestUserFollowings(t *testing.T) {
 		t.Error(err)
 		// } else if len(ret) != 1 {
 		// 	t.Error("should be following only one user", ret)
-		// } else if ret[0].Id != macklemore_id {
+		// } else if ret[0].Id != shiroban_id {
 		// 	t.Error("Should be following macklemore")
 	}
 }
