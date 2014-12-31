@@ -11,6 +11,7 @@ var ladygaga_id uint64 = 55213175
 var regain_control_id uint64 = 120702493
 var shiroban_id uint64 = 448757
 var joneisen_id uint64 = 557633
+var nightsfornujabes_id uint64 = 3245321
 
 // -- helpers --
 
