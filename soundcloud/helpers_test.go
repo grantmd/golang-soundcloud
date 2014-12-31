@@ -15,9 +15,9 @@ var joneisen_id uint64 = 557633
 // -- helpers --
 
 func init() {
-	doAuthorizedRequests = (TestConfig["access_token"] != "")
+	doAuthorizedRequests = (TestConfig["access_token"] != "" && TestConfig["username"] != "" && TestConfig["password"] != "")
 	if !doAuthorizedRequests {
-		fmt.Println("*** Authorized requests will not performed because no access_token was specified in config_test.go")
+		fmt.Println("*** Authorized requests will not be performed because no access_token or username/password was specified in config_test.go")
 	}
 	api = createApi()
 }
