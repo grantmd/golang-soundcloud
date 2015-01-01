@@ -34,3 +34,17 @@ func TestTrackGet(t *testing.T) {
 		t.Error("Some counts are wrong?", ret)
 	}
 }
+
+func TestTrackStream(t *testing.T) {
+	track, err := api.Track(regain_control_id).Get(nil)
+	if err != nil {
+		t.Error(err)
+	}
+
+	streamUrl, err := track.Stream()
+	if err != nil {
+		t.Error(err)
+	} else if streamUrl == nil {
+		t.Error("streamUrl is empty?")
+	}
+}

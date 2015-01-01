@@ -38,6 +38,28 @@ func (t *TrackApi) Favorite(id uint64) *userEndpoint {
 	return t.api.newUserEndpoint(t.base, "favorites", id)
 }
 
+func (t *Track) Stream() (uri *url.URL, err error) {
+	params, err := api.extendParams(Values())
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := buildGetRequest(t.StreamUrl, params)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := client.Do(req)
+	if urlerr, ok := err.(*url.Error); ok && urlerr.Err.Error() == "No redirects!" {
+		err = nil
+	} else if err != nil {
+		return nil, err
+	}
+
+	loc, err := resp.Location()
+	return loc, nil
+}
+
 // No idea how these endpoints works
 // func (t *TrackApi) SharedToUsers() (*usersEndpoint) {
 // func (t *TrackApi) SharedToEmails() (*emailsEndpoint) {
